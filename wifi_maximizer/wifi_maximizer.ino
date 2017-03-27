@@ -2,8 +2,31 @@
  * Author: Shawn Hymel (SparkFun Electronics)
  * Date: March 23, 2017
  * 
- * Displays the RSSI on Micro OLED.
+ * Displays the connected WiFi RSSI on a Micro OLED.
+ * 
+ * Connections:
+ *   Thing Dev  | OLED
+ *   -----------|------
+ *      GND     |  GND
+ *      3V3     |  3V3
+ *    13 (MOSI) |  SDI
+ *    14 (SCK)  |  SCK
+ *    12 (MISO) |  SDO
+ *       4      |  D/C
+ *       0      |  RST
+ *      15      |  CS
+ *      
+ * Required Libraries:
+ *   - ESP8266 Arduino Boards
+ *     http://arduino.esp8266.com/stable/package_esp8266com_index.json
+ *   - SparkFun Micro OLED
+ *     https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/archive/master.zip
+ *
+ * License:
+ *   Beerware - https://en.wikipedia.org/wiki/Beerware
  */
+ 
+ /
 
 #include "ESP8266WiFi.h"
 #include <Wire.h>  // Include Wire if you're using I2C
