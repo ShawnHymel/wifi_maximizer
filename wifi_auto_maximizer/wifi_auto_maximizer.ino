@@ -141,7 +141,7 @@ void setup() {
   oled.display();
 
   // Move to max WiFi position
-  pan_servo.write(max_pos);
+  pan_servo.write(max_pan);
   tilt_servo.write(max_tilt);
 
   // Wait and clear OLED
