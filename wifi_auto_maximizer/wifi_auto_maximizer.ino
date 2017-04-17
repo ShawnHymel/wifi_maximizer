@@ -50,8 +50,10 @@ const char *PASSWORD = "xxxxx";
 // Min and max servo settings
 const int PAN_MIN = 0;
 const int PAN_MAX = 180;
+const int PAN_INC = 5;
 const int TILT_MIN = 80;
-const int TILT_MAX = 180;
+const int TILT_MAX = 150;
+const int TILT_INC = 5;
 
 // Pins
 const int RESET_PIN = 0;
@@ -119,8 +121,8 @@ void setup() {
   // sweep through pan and tilt looking for max RSSI
   max_pan = pan_pos;
   max_tilt = tilt_pos;
-  for ( int pan_pos = PAN_MIN; pan_pos <= PAN_MAX; pan_pos++ ) {
-    for ( int tilt_pos = TILT_MIN; tilt_pos <= TILT_MAX; tilt_pos++ ) {
+  for ( int pan_pos = PAN_MIN; pan_pos <= PAN_MAX; pan_pos += PAN_INC ) {
+    for ( int tilt_pos = TILT_MIN; tilt_pos <= TILT_MAX; tilt_pos += PAN_INC ) {
       pan_servo.write(pan_pos);
       tilt_servo.write(tilt_pos);
       rssi = getAndDisplayRSSI();
@@ -129,7 +131,7 @@ void setup() {
         max_pan = pan_pos;
         max_tilt = tilt_pos;
       }
-      delay(15);
+      delay(10);
     }
   }
 
